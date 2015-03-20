@@ -1,7 +1,5 @@
 package com.anubis.twitter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +10,8 @@ import android.widget.TextView;
 
 import com.anubis.twitter.model.Tweet;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.List;
 
 public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 	Context context;
@@ -50,9 +50,9 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		}
 		screen.setText(t.getUser().getScreenName());
 		user.setText("@" + t.getUser().getName());
-		timestamp.setText(DateUtility.twitterTime(t.getCreatedAt(), context));
+		//timestamp.setText(DateUtility.twitterTime(t.getCreatedAt(), context));
 
-		body.setText(t.getBody());
+		body.setText(t.getText());
 		// Return the completed view to render on screen
 		return v;
 	}

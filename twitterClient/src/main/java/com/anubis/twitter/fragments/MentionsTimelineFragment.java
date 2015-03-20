@@ -21,6 +21,6 @@ public class MentionsTimelineFragment extends TweetsListFragment {
 
     @Override
     String getTimeline() {
-        return "statuses/mentions_timeline.json";
+        return "mentions_timeline.json";
     }
 }

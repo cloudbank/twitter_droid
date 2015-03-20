@@ -1,22 +1,15 @@
 package com.anubis.twitter.model;
 
-import android.text.Html;
-
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Column.ForeignKeyAction;
 import com.activeandroid.annotation.Table;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @Table(name = "Tweets")
 public class Tweet implements Serializable{
 	@Column
-	private String body;
+	private String text;
 	@Column(name="remoteid", unique = true)
 	private long id;
 	@Column
@@ -28,7 +21,7 @@ public class Tweet implements Serializable{
 	public Tweet() {
 		super();
 	}
-	
+	/*
 	public static Tweet fromJson(JSONObject jo) {
 		Tweet tweet = new Tweet();
 		try {
@@ -46,9 +39,10 @@ public class Tweet implements Serializable{
 		return tweet;
 
 	}
+&*/
+	public String getText() {
 
-	public String getBody() {
-		return body;
+		return text;
 	}
 
 	public long getId() {
@@ -62,7 +56,7 @@ public class Tweet implements Serializable{
 	public User getUser() {
 		return user;
 	}
-
+/*
 	public static ArrayList<Tweet> fromJsonArray(JSONArray response) {
 		ArrayList<Tweet> twts = new ArrayList<Tweet>();
 		for (int i = 0; i < response.length(); i++) {
@@ -83,9 +77,9 @@ public class Tweet implements Serializable{
 	
 		return twts;
 	}
-
+*/
 	@Override
 	public String toString() {
-        return this.body  + "   --"+this.user.getName()+" :"+this.user.getScreenName();
+        return this.text  + "   --"+this.user.getName()+" :"+this.user.getScreenName();
 	}
 }

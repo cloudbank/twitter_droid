@@ -49,6 +49,6 @@ public class HomeTimelineFragment extends TweetsListFragment {
 
     @Override
     String getTimeline() {
-        return "statuses/home_timeline.json";
+        return "home_timeline.json";
     }
 }

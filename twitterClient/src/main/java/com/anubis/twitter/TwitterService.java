@@ -12,18 +12,19 @@ import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**
- * Created by sabine on 3/15/15.
+ * Created by sabine on 3/18/15.
  */
 public interface TwitterService {
+    public static final String REST_URL = "https://api.twitter.com/1.1";
+    public static final String REST_CALLBACK_URL = "oauth://cpbasictweets";
 
-
-    @GET("/statuses/{timeline}")
+    @GET("/1.1/statuses/{timeline}")
     void getTimeline(@Path("timeline") String timeline, @Query("max_id") String maxID, Callback<List<Tweet>> cb);
 
-    @POST("statuses/update.json")
+    @POST("/1.1/statuses/update.json")
     void sendTweet(@Query("status") String status, Callback<Tweet> cb);
 
-    @GET("account/verify_credentials.json")
+    @GET("/1.1/account/verify_credentials.json")
     void getMyInfo(Callback<User> cb);
 
 

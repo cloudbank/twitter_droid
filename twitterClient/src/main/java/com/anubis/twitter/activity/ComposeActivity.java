@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.anubis.twitter.R;
 import com.anubis.twitter.TwitterApp;
-import com.anubis.twitter.TwitterService;
+import com.anubis.twitter.TwitterClient;
 import com.anubis.twitter.model.Tweet;
 
 import retrofit.Callback;
@@ -26,7 +26,7 @@ public class ComposeActivity extends Activity {
 
 	EditText etCompose;
 	//TwitterClient client;
-    TwitterService mTwitterService;
+    TwitterClient mTwitterClient;
 	ArrayAdapter<Tweet> aTweets;
 
 	@Override
@@ -34,7 +34,7 @@ public class ComposeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_compose);
 		//client = TwitterApp.getRestClient();
-        mTwitterService = TwitterApp.getRestService();
+        mTwitterClient = TwitterApp.getTwitterClient();
 		etCompose = (EditText) findViewById(R.id.etCompose);
 		etCompose.addTextChangedListener(new TextWatcher() {
 
@@ -92,7 +92,7 @@ public class ComposeActivity extends Activity {
 	private void postTweet(String status) {
 
 
-        mTwitterService.sendTweet(status, new Callback<Tweet>() {
+        mTwitterClient.getTwitterService().sendTweet(status, new Callback<Tweet>() {
 
             @Override
             public void success(Tweet tweet, Response response) {

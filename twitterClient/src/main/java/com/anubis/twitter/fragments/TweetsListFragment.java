@@ -12,12 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import com.anubis.twitter.activity.ComposeActivity;
 import com.anubis.twitter.R;
 import com.anubis.twitter.TweetArrayAdapter;
 import com.anubis.twitter.TwitterApp;
 import com.anubis.twitter.TwitterClient;
-import com.anubis.twitter.TwitterService;
+import com.anubis.twitter.activity.ComposeActivity;
 import com.anubis.twitter.activity.ProfileActivity;
 import com.anubis.twitter.listeners.EndlessScrollListener;
 import com.anubis.twitter.model.Tweet;
@@ -35,10 +34,10 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
     final int REQUEST_CODE = 20;
     ArrayAdapter<Tweet> mAdapter;
     PullToRefreshListView mListView;
-    TwitterClient mTwitterClient;
     ArrayList<Tweet> mTweetsList;
-    TwitterService mTwitterService;
-
+    //TwitterService mTwitterService;
+    TwitterClient mTwitterClient;
+//
 
     abstract String getTimeline();
 
@@ -76,10 +75,10 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTwitterClient = TwitterApp.getRestClient();
-        mTwitterService = TwitterApp.getRestService();
+        mTwitterClient = TwitterApp.getTwitterClient();
         mTweetsList = new ArrayList<Tweet>();
         mAdapter = new TweetArrayAdapter(getActivity(), mTweetsList);
+
         setHasOptionsMenu(true);
         populateTimeline( true);
     }
@@ -121,7 +120,7 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
     }
 
     public void populateTimeline( boolean clear) {
-        long lowId = 0;
+        long lowId = -1;
         if (clear) {
             mTweetsList.clear();
             mAdapter.clear();
@@ -130,17 +129,25 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
             lowId = mTweetsList.get(mTweetsList.size() - 1).getId();
             lowId--;
         }
+        Log.d("DEBUG", "Sending request to getTimeLine()" + mTwitterClient.getSession() + this.getTimeline() +lowId);
 
-        mTwitterService.getTimeline(getTimeline(), String.valueOf(lowId), new Callback<List<Tweet>>() {
+
+        mTwitterClient.getTwitterService().getTimeline(getTimeline(), lowId > 0 ? String.valueOf(lowId) : null, new Callback<List<Tweet>>() {
+
+
             @Override
-            public void success(List<Tweet> tasks, Response response) {
-                mAdapter.addAll(tasks);
+            public void success(List<Tweet> tweets, Response response) {
+
+                Log.d("DEBUG","SUCCESS in getTimeline()" + response.getBody().toString() +"***" +tweets.size());
+                mTweetsList.addAll(tweets);
+                mAdapter.addAll(mTweetsList);
                 mListView.onRefreshComplete();
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.e("ERROR", error.toString());
+
+                Log.e("ERROR in getTimeline()", error.toString());
             }
         });
 

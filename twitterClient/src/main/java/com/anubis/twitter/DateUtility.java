@@ -1,14 +1,15 @@
 package com.anubis.twitter;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import android.content.Context;
 import android.text.format.DateUtils;
+
+import java.util.Calendar;
+import java.util.Date;
 
 class DateUtility {
 
 	public static String twitterTime(String timestamp, Context c) {
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(timestamp));
 		String s = DateUtils.getRelativeDateTimeString(c,

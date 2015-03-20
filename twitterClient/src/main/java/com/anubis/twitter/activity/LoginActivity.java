@@ -1,33 +1,75 @@
 package com.anubis.twitter.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
 import android.widget.Toast;
 
-import com.anubis.twitter.TwitterClient;
-import com.codepath.oauth.OAuthLoginActivity;
 import com.anubis.twitter.R;
-import com.anubis.twitter.R.layout;
-import com.anubis.twitter.R.menu;
+import com.anubis.twitter.TwitterClient;
+import com.twitter.sdk.android.core.Callback;
+import com.twitter.sdk.android.core.Result;
+import com.twitter.sdk.android.core.TwitterException;
+import com.twitter.sdk.android.core.TwitterSession;
+import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
-public class LoginActivity extends OAuthLoginActivity<TwitterClient> {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
-	}
+public class LoginActivity extends Activity {
 
-	// Inflate the menu; this adds items to the action bar if it is present.
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
 
-	// OAuth authenticated successfully, launch primary authenticated activity
+    private TwitterLoginButton loginButton;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
+        loginButton.setCallback(new Callback<TwitterSession>() {
+            @Override
+            public void success(Result<TwitterSession> result) {
+                TwitterClient.setSession(result.data);
+                // Do something with result, which provides a TwitterSession for making API calls
+                Intent i = new Intent(LoginActivity.this, TimelineActivity.class);
+                startActivity(i);
+            }
+
+            @Override
+            public void failure(TwitterException exception) {
+                Toast.makeText(LoginActivity.this,"Problem with authentication to Twitter", Toast.LENGTH_SHORT).show();
+                // Do something on failure  poo!
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        loginButton.onActivityResult(requestCode, resultCode, data);
+    }
+
+    // Inflate the menu; this adds items to the action bar if it is present.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.login, menu);
+        return true;
+    }
+
+
+
+    /*
+    // OAuth authenticated successfully, launch primary authenticated activity
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
@@ -49,5 +91,5 @@ public class LoginActivity extends OAuthLoginActivity<TwitterClient> {
 	public void loginToRest(View view) {
 		getClient().connect();
 	}
-
+    */
 }

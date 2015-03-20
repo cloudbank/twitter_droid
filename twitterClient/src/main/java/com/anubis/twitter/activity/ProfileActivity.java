@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anubis.twitter.R;
-import com.anubis.twitter.TwitterService;
+import com.anubis.twitter.TwitterClient;
 import com.anubis.twitter.model.User;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -15,10 +15,11 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+
 public class ProfileActivity extends FragmentActivity {
 
 
-    TwitterService mTwitterService;
+    TwitterClient mTwitterClient;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class ProfileActivity extends FragmentActivity {
 
 	private void loadInfo() {
 
-        mTwitterService.getMyInfo(new Callback<User>() {
+        mTwitterClient.getTwitterService().getMyInfo(new Callback<User>() {
 
             @Override
             public void success(User u, Response response) {

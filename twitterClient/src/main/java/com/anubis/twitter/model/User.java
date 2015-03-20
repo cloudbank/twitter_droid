@@ -3,9 +3,6 @@ package com.anubis.twitter.model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.Serializable;
 
 @Table(name = "Users")
@@ -15,10 +12,10 @@ public class User implements Serializable {
 	@Column(name = "remoteid", unique = true)
 	private long id;
 	@Column
-	private String screenName;
+	private String screen_name;
 	@Column
-	private String profileImageUrl;
-	private String followers;
+	private String profile_image_url;
+	private String followers_count;
 	private String following;
 	private String tagline;
 
@@ -29,7 +26,7 @@ public class User implements Serializable {
 	/*
 	 * public List<Tweet> tweets() { return getMany(Tweet.class, "User"); }
 	 */
-
+/*
 	public static User fromJson(JSONObject jo) {
 		User u = new User();
 		try {
@@ -47,7 +44,7 @@ public class User implements Serializable {
 		return u;
 
 	}
-
+*/
 	public String getName() {
 		return name;
 	}
@@ -57,11 +54,11 @@ public class User implements Serializable {
 	}
 
 	public String getScreenName() {
-		return screenName;
+		return screen_name;
 	}
 
 	public String getProfileImageUrl() {
-		return profileImageUrl;
+		return profile_image_url;
 	}
 
 	public String getFollowing() {
@@ -70,7 +67,7 @@ public class User implements Serializable {
 	}
 
 	public String getFollowers() {
-		return followers;
+		return followers_count;
 	}
 
 	public String getTagline() {

@@ -18,7 +18,7 @@ public class ServiceGenerator {
     private ServiceGenerator() {
     }
 
-    public static <S> S createService(Class<S> serviceClass, String baseUrl) {
+    public static <S> S createService(Class<S> serviceClass, String baseUrl /*final AccessToken accessToken*/) {
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .registerTypeAdapter(Date.class, new DateTypeAdapter())
@@ -28,6 +28,17 @@ public class ServiceGenerator {
                 .setConverter(new GsonConverter(gson))
                 .setClient(new OkClient(new OkHttpClient()));
 
+/*
+        if (accessToken != null) {
+            builder.setRequestInterceptor(new RequestInterceptor() {
+                @Override
+                public void intercept(RequestFacade request) {
+                    request.addHeader("Accept", "application/json");
+                    request.addHeader("Authorization", accessToken.getTokenType() +
+                            " " + accessToken.getAccessToken());
+                }
+            });
+        }*/
         RestAdapter adapter = builder.build();
 
         return adapter.create(serviceClass);

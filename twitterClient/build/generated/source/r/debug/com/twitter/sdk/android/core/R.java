@@ -44,12 +44,12 @@ public final class R {
 		public static final int tw__transparent = 0x7f020025;
 	}
 	public static final class id {
-		public static final int imageView = 0x7f0b002f;
-		public static final int tw__allow_btn = 0x7f0b0032;
-		public static final int tw__not_now_btn = 0x7f0b0031;
-		public static final int tw__share_email_desc = 0x7f0b0030;
-		public static final int tw__spinner = 0x7f0b002e;
-		public static final int tw__web_view = 0x7f0b002d;
+		public static final int imageView = 0x7f0b0030;
+		public static final int tw__allow_btn = 0x7f0b0033;
+		public static final int tw__not_now_btn = 0x7f0b0032;
+		public static final int tw__share_email_desc = 0x7f0b0031;
+		public static final int tw__spinner = 0x7f0b002f;
+		public static final int tw__web_view = 0x7f0b002e;
 	}
 	public static final class layout {
 		public static final int tw__activity_oauth = 0x7f03000d;

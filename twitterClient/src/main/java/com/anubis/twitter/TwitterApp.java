@@ -4,12 +4,12 @@ import android.app.Application;
 import android.content.Context;
 
 import com.activeandroid.ActiveAndroid;
-import com.anubis.twitter.service.ServiceGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
+
 import io.fabric.sdk.android.Fabric;
 
 /*
@@ -24,16 +24,18 @@ import io.fabric.sdk.android.Fabric;
 public class TwitterApp extends Application {
 
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    //@todo buildconfig
     private static final String TWITTER_KEY = "hUULy3KuPrFmI7evGMRCFGsmg";
     private static final String TWITTER_SECRET = "eqPQnY8shJEF6PW9jVZ7sAnb6vmrbP84cwAqkIyas1KOPZZQTo";
 	private static Context context;
-    public static final String REST_URL = "https://api.twitter.com/1.1";
+
 
 
     @Override
 	public void onCreate() {
 		super.onCreate();
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        TwitterAuthConfig authConfig =
+                new TwitterAuthConfig(TWITTER_KEY,TWITTER_SECRET);
 		Fabric.with(this, new Twitter(authConfig));
 		TwitterApp.context = this;
         ActiveAndroid.initialize(this);
@@ -47,10 +49,11 @@ public class TwitterApp extends Application {
         //Fabric.with(this, new Twitter(authConfig));
 	}
 
-	public static TwitterClient getRestClient() {
-		return (TwitterClient) TwitterClient.getInstance(TwitterClient.class, TwitterApp.context);
-	}
-    public static TwitterService getRestService() {
-        return (TwitterService) ServiceGenerator.createService(TwitterService.class,REST_URL );
+
+    public static TwitterClient getTwitterClient() {
+        return (TwitterClient) TwitterClient.getInstance();
     }
+
+
+
 }
