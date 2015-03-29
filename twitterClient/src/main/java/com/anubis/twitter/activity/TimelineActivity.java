@@ -1,26 +1,22 @@
 package com.anubis.twitter.activity;
 
-import java.util.ArrayList;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 
+import com.anubis.twitter.R;
 import com.anubis.twitter.fragments.HomeTimelineFragment;
 import com.anubis.twitter.fragments.MentionsTimelineFragment;
 import com.anubis.twitter.listeners.FragmentTabListener;
 import com.anubis.twitter.model.Tweet;
-import  com.anubis.twitter.R;
-import  com.anubis.twitter.R.drawable;
-import  com.anubis.twitter.R.id;
-import  com.anubis.twitter.R.layout;
-import  com.anubis.twitter.R.menu;
+
+import java.util.ArrayList;
 
 public class TimelineActivity extends FragmentActivity {
     // tweets that are created when mentions tab is selected
-	ArrayList<Tweet> fragmentTweets = new ArrayList<Tweet>();
+	ArrayList<Tweet> fragmentTweets = new ArrayList< Tweet>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +68,7 @@ public class TimelineActivity extends FragmentActivity {
 		return true;
 	}
 
-	public void setFragmentTweets(Tweet tweet) {
+	public void setFragmentTweets( Tweet tweet) {
 		fragmentTweets.add(tweet);
 	}
 
@@ -80,7 +76,7 @@ public class TimelineActivity extends FragmentActivity {
 		fragmentTweets.clear();
 	}
 
-	public ArrayList<Tweet> getFragmentTweets() {
+	public ArrayList< Tweet> getFragmentTweets() {
 		return fragmentTweets;
 	}
 

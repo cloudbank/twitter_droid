@@ -8,15 +8,15 @@ package eu.erikw;
 
 public final class R {
 	public static final class drawable {
-		public static final int ptr_pulltorefresh_arrow = 0x7f020013;
+		public static final int ptr_pulltorefresh_arrow = 0x7f020014;
 	}
 	public static final class id {
-		public static final int ptr_id_header = 0x7f0b0028;
-		public static final int ptr_id_image = 0x7f0b0029;
-		public static final int ptr_id_last_updated = 0x7f0b002d;
-		public static final int ptr_id_spinner = 0x7f0b002a;
-		public static final int ptr_id_text = 0x7f0b002c;
-		public static final int ptr_id_textwrapper = 0x7f0b002b;
+		public static final int ptr_id_header = 0x7f0b0027;
+		public static final int ptr_id_image = 0x7f0b0028;
+		public static final int ptr_id_last_updated = 0x7f0b002c;
+		public static final int ptr_id_spinner = 0x7f0b0029;
+		public static final int ptr_id_text = 0x7f0b002b;
+		public static final int ptr_id_textwrapper = 0x7f0b002a;
 	}
 	public static final class layout {
 		public static final int ptr_header = 0x7f03000c;

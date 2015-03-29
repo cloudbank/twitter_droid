@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.anubis.twitter.R;
+import com.anubis.twitter.TwitterApp;
 import com.anubis.twitter.TwitterClient;
-import com.anubis.twitter.model.User;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import retrofit.Callback;
@@ -24,19 +24,19 @@ public class ProfileActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        mTwitterClient = TwitterApp.getTwitterClient();
 		setContentView(R.layout.activity_profile);
 		loadInfo();
 
 	}
 
 	private void loadInfo() {
-
-        mTwitterClient.getTwitterService().getMyInfo(new Callback<User>() {
+        mTwitterClient.getTwitterService().getMyInfo(new Callback< com.twitter.sdk.android.core.models.User>() {
 
             @Override
-            public void success(User u, Response response) {
+            public void success( com.twitter.sdk.android.core.models.User u, Response response) {
 
-                getActionBar().setTitle("@" + u.getScreenName());
+                getActionBar().setTitle("@" + u.screenName);
                 populateProfileHeader(u);
             }
 
@@ -45,17 +45,17 @@ public class ProfileActivity extends FragmentActivity {
                 Log.e("ERROR", error.toString());
             }
 
-            private void populateProfileHeader(User u) {
+            private void populateProfileHeader(com.twitter.sdk.android.core.models.User u) {
                 TextView name = (TextView) findViewById(R.id.name);
                 TextView tagline = (TextView) findViewById(R.id.screen);
                 TextView followers = (TextView) findViewById(R.id.followers);
                 TextView following = (TextView) findViewById(R.id.following);
                 ImageView image = (ImageView) findViewById(R.id.profImage);
-                name.setText(u.getName());
-                tagline.setText(u.getTagline());
-                followers.setText(u.getFollowers() + " Followers");
-                following.setText(u.getFollowing() + " Following");
-                ImageLoader.getInstance().displayImage(u.getProfileImageUrl(), image);
+                name.setText(u.name);
+               // tagline.setText(u.tagLine);
+                followers.setText(u.followersCount + " Followers");
+                following.setText(u.friendsCount  +" Following");
+                ImageLoader.getInstance().displayImage(u.profileImageUrl, image);
 
             }
         });

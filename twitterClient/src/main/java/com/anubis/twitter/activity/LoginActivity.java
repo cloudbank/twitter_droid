@@ -3,7 +3,6 @@ package com.anubis.twitter.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.Toast;
 
 import com.anubis.twitter.R;
@@ -60,12 +59,13 @@ public class LoginActivity extends Activity {
     }
 
     // Inflate the menu; this adds items to the action bar if it is present.
+  /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.login, menu);
         return true;
     }
-
+*/
 
 
     /*

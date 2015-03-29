@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Basic Twitter</string>
+    <string name="app_name">Tweeter</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_photos">Flickr Photos</string>
@@ -10,6 +10,6 @@
     <string name="title_activity_timeline">Twitter Timeline</string>
     <string name="title_activity_compose">Compose a Tweet</string>
     <string name="title_activity_profile">Profile</string>
-    <string name="compose_tweet">Compose new tweet</string>
+    <string name="compose_tweet">What\'s happening?</string>
     <string name="tweet">Tweet</string>
 </resources>

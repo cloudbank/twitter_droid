@@ -65,7 +65,7 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 		Log.d("DEBUG", totalItemCount + ":" + visibleItemCount + ":"
 				+ firstVisibleItem);
 		// the pulltorefresh is creating a bug..there is 1:0:0 at start @todo
-		if (totalItemCount > 1) {
+        if (totalItemCount > 1 && totalItemCount > visibleItemCount) {
 			if (!loading
 					&& (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
 				onLoadMore(currentPage + 1, totalItemCount);

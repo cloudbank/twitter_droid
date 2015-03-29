@@ -12,7 +12,6 @@ public class TwitterClient extends TwitterApiClient {
     private TwitterClient(TwitterSession session) {
         super(session);
         mSession = session;
-       //@todo configure the restadapter underlying for GSON and logging and dates
     }
 
     public static TwitterSession getSession() {

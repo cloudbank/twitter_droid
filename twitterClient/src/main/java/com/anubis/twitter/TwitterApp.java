@@ -2,11 +2,14 @@ package com.anubis.twitter;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 
 import com.activeandroid.ActiveAndroid;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
@@ -30,23 +33,50 @@ public class TwitterApp extends Application {
 	private static Context context;
 
 
+    private static TwitterApp singleton;
+    private Typeface avenirFont;
+
+    public static TwitterApp getInstance() {
+        return singleton;
+    }
+    public Typeface getTypeface() {
+        if (avenirFont == null) {
+            extractAvenir();
+        }
+        return avenirFont;
+    }
+    private void extractAvenir() {
+        avenirFont = Typeface.createFromAsset(getAssets(), "fonts/Avenir.ttc");
+    }
+
+
+
+
 
     @Override
 	public void onCreate() {
 		super.onCreate();
+        singleton = this;
+        extractAvenir();
         TwitterAuthConfig authConfig =
                 new TwitterAuthConfig(TWITTER_KEY,TWITTER_SECRET);
 		Fabric.with(this, new Twitter(authConfig));
 		TwitterApp.context = this;
         ActiveAndroid.initialize(this);
 		// Create global configuration and initialize ImageLoader with this configuration
-		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().
-				cacheInMemory().cacheOnDisc().build();
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .displayer(new RoundedBitmapDisplayer(5)) //rounded corner bitmap
+                .cacheInMemory()
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .cacheOnDisc()
+                .showStubImage(android.R.drawable.btn_star)
+                .resetViewBeforeLoading()
+                .build();
+
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
-		.defaultDisplayImageOptions(defaultOptions)
+		.defaultDisplayImageOptions(options)
 		.build();
 		ImageLoader.getInstance().init(config);
-        //Fabric.with(this, new Twitter(authConfig));
 	}
 
 

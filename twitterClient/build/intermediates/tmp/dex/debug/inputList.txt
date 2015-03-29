@@ -1,5 +1,5 @@
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/classes/debug
-/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-a1e50bd8bb818bed74926639d49a0b52c4dfe07a.jar
+/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-00eabbdfffa9ef380f873eff339801a13e913d80.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-764cbdb126b7649f9c72b194baf32fbe686aa466.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-c85b8775828dd65406a4b87f80139caa1e65dff4.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/codepath-utils-21806d8a63d979f903bd43eaa6e550f2d1287d17.jar
@@ -16,10 +16,10 @@
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/universal-image-loader-1.8.4-3f199767ac798695cbe5444402cfd44985a0e5d0.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-d5146265cd4f0209a2985cd1be76fb13628b005d.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-7b6f9bad5b25c4e0f8d6f73641d320a15eafddd3.jar
-/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-ada88519c19a0f79fe2bbb8a42c3eef6de23dd85.jar
+/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-13f61b5685faf11ec4b97078d99d2acf67ad8700.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/gson-2.3.1-969918510828053ac2f19e54e48baf4ca7f8b979.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/scribe-codepath-166e0e7e4eeeee84f8cb7d5e9733a40765f3f7d8.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-f5d53569f1344ae85acd6be224b8414fb53b09d1.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/okhttp-2.2.0-38abdb78df5402de61bbf1d396f039d89ff6157a.jar
-/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-ecbe0749661857b0f1a474657524adcffa00f3fa.jar
+/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-d1ddff310f5f91b1f2634d0c251836bcd38a67f1.jar
 /Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/parceler-0.2.15-927ee78e0884bff476526e76133be8b37c14c1e4.jar

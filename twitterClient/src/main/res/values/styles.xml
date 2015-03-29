@@ -17,4 +17,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="ptr_headerContainer">
+
+        <!-- Change the text style and color -->
+        <item name="android:background">#24A4F6</item>
+    </style>
+
+
 </resources>

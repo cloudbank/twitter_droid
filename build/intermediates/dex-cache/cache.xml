@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
-        <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-ecbe0749661857b0f1a474657524adcffa00f3fa.jar" />
-    </item>
-    <item
         jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/io.fabric.sdk.android/fabric/1.2.0/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -28,6 +21,13 @@
         revision="21.1.2"
         sha1="207613ded8fe97ddc7424e7a1499b39e82431168">
         <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/parceler-0.2.15-927ee78e0884bff476526e76133be8b37c14c1e4.jar" />
+    </item>
+    <item
+        jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-d1ddff310f5f91b1f2634d0c251836bcd38a67f1.jar" />
     </item>
     <item
         jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/com.twitter.sdk.android/twitter/1.3.2/classes.jar"
@@ -51,13 +51,6 @@
         <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-a5729ed04ef816d8cfe8f2b2a09d11c00c5d6a2a.jar" />
     </item>
     <item
-        jar="/Users/sabine/Downloads/android-sdk-macosx-3/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
-        <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-a1e50bd8bb818bed74926639d49a0b52c4dfe07a.jar" />
-    </item>
-    <item
         jar="/Users/sabine/android_studio/twitter/twitterClient/libs/scribe-codepath.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -72,6 +65,13 @@
         <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-6d35259b01f68d6345c1293375a39dc0c505b059.jar" />
     </item>
     <item
+        jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-13f61b5685faf11ec4b97078d99d2acf67ad8700.jar" />
+    </item>
+    <item
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -84,13 +84,6 @@
         revision="21.1.2"
         sha1="b72c029e2ec0ef125b758f2f6bac64f6df8e7a35">
         <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/parceler-api-0.2.15-2be494492f72bb57779afa6d25facc16d6420f12.jar" />
-    </item>
-    <item
-        jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-ada88519c19a0f79fe2bbb8a42c3eef6de23dd85.jar" />
     </item>
     <item
         jar="/Users/sabine/android_studio/twitter/twitterClient/libs/codepath-utils.jar"
@@ -149,6 +142,13 @@
         <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-c85b8775828dd65406a4b87f80139caa1e65dff4.jar" />
     </item>
     <item
+        jar="/Users/sabine/Downloads/android-sdk-macosx-3/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-00eabbdfffa9ef380f873eff339801a13e913d80.jar" />
+    </item>
+    <item
         jar="/Users/sabine/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.2.0/959c454243581fdf730abfd4f4745441724bcf2c/okhttp-2.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -166,7 +166,7 @@
         jar="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/exploded-aar/twitter/pullToRefreshListView/unspecified/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="c6bc3903bf3933113f2b8386046783a2e7ea83f5">
+        sha1="5fda4650a37ce14f6efa5429c49cc052d974f503">
         <dex dex="/Users/sabine/android_studio/twitter/twitterClient/build/intermediates/pre-dexed/debug/classes-16bfb855a13d02948c9848cca55b30bdb8bae233.jar" />
     </item>
 

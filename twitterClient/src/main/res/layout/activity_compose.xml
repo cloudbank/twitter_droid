@@ -12,7 +12,7 @@
         android:id="@+id/composeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/editText1"
+        android:textColor="@color/grayish_blue"
         android:layout_centerHorizontal="true"
         android:text="@string/compose_tweet" />
 
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:background="@color/background_beige"
         android:inputType="textMultiLine"
         android:paddingTop="40dp" >
 
@@ -44,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/etCompose"
         android:layout_below="@+id/etCompose"
+        android:textColor="@color/grayish_blue"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="16dp"
         android:hint="140 chars" />

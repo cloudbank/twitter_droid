@@ -10,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import com.anubis.twitter.R;
 import com.anubis.twitter.TweetArrayAdapter;
@@ -19,6 +18,7 @@ import com.anubis.twitter.TwitterClient;
 import com.anubis.twitter.activity.ComposeActivity;
 import com.anubis.twitter.activity.ProfileActivity;
 import com.anubis.twitter.listeners.EndlessScrollListener;
+import com.anubis.twitter.model.ParcelableTweet;
 import com.anubis.twitter.model.Tweet;
 
 import java.util.ArrayList;
@@ -30,14 +30,14 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public abstract class TweetsListFragment extends Fragment implements ScrollingTimeline {
+public abstract class BaseTimelineFragment extends Fragment implements ScrollingTimeline {
     final int REQUEST_CODE = 20;
-    ArrayAdapter<Tweet> mAdapter;
+    TweetArrayAdapter mAdapter;
+
+
     PullToRefreshListView mListView;
     ArrayList<Tweet> mTweetsList;
-    //TwitterService mTwitterService;
     TwitterClient mTwitterClient;
-//
 
     abstract String getTimeline();
 
@@ -49,6 +49,21 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
     private void openCompose() {
         Intent i = new Intent(getActivity(), ComposeActivity.class);
         startActivityForResult(i, REQUEST_CODE);
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == getActivity().RESULT_OK
+                && requestCode == REQUEST_CODE) {
+            Log.d("DEBUG", "onActivityResult" + getClass()
+                    + mTweetsList.get(0).toString());
+            ParcelableTweet pTweet = data.getParcelableExtra("tweet");
+            Tweet tweet = ParcelableTweet.createTweet(pTweet);
+            mTweetsList.add(0, tweet);
+            mAdapter.notifyDataSetChanged();
+
+        }
     }
 
     @Override
@@ -78,10 +93,12 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
         mTwitterClient = TwitterApp.getTwitterClient();
         mTweetsList = new ArrayList<Tweet>();
         mAdapter = new TweetArrayAdapter(getActivity(), mTweetsList);
-
+        //<CompactTweetView>(
+        // getActivity());
         setHasOptionsMenu(true);
-        populateTimeline( true);
+
     }
+
 
 
     @Override
@@ -115,21 +132,24 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
                 populateTimeline(true);
             }
         });
+
+        populateTimeline(true);
         return v;
 
     }
 
-    public void populateTimeline( boolean clear) {
+    public void populateTimeline(boolean clear) {
+        mListView.setRefreshing();
         long lowId = -1;
         if (clear) {
             mTweetsList.clear();
             mAdapter.clear();
             mAdapter.notifyDataSetChanged();
         } else {
-            lowId = mTweetsList.get(mTweetsList.size() - 1).getId();
+            lowId = mTweetsList.get(mTweetsList.size() - 1).id;
             lowId--;
         }
-        Log.d("DEBUG", "Sending request to getTimeLine()" + mTwitterClient.getSession() + this.getTimeline() +lowId);
+        Log.d("DEBUG", "Sending request to getTimeLine()" + mTwitterClient.getSession() + this.getTimeline() + (lowId > 0 ? String.valueOf(lowId) : null) + mTweetsList.size());
 
 
         mTwitterClient.getTwitterService().getTimeline(getTimeline(), lowId > 0 ? String.valueOf(lowId) : null, new Callback<List<Tweet>>() {
@@ -138,9 +158,12 @@ public abstract class TweetsListFragment extends Fragment implements ScrollingTi
             @Override
             public void success(List<Tweet> tweets, Response response) {
 
-                Log.d("DEBUG","SUCCESS in getTimeline()" + response.getBody().toString() +"***" +tweets.size());
+                Log.d("DEBUG", "SUCCESS in getTimeline()" + response.getBody().toString() + "***" + tweets.size());
                 mTweetsList.addAll(tweets);
-                mAdapter.addAll(mTweetsList);
+                Log.d("DEBUG", "%%%" + mTweetsList.size());
+
+                //mAdapter.addAll(mTweetsList);
+                Log.d("DEBUG", "&&&&&&&  " + mAdapter.getCount());
                 mListView.onRefreshComplete();
             }
 
